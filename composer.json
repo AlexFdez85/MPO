@@ -1,0 +1,13 @@
+
+{
+  "name": "gpoferro/p360",
+  "description": "Portal P360 con PhpSpreadsheet en PHP 7.2",
+ "require": {
+    "phpoffice/phpspreadsheet": "1.14.1"
+  },
+  "config": {
+    "platform": {
+      "php": "7.2.34"
+    }
+  }
+}

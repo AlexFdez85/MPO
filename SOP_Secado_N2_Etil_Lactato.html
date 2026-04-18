@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOP: Secado de Lactato de Etilo y Solventes con N₂ (y Tamiz Molecular)</title>
+<style>
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;line-height:1.55;color:#0f172a;margin:0;background:#f8fafc}
+  header{background:#0ea5e9;color:white;padding:28px 22px}
+  main{max-width:1100px;margin:0 auto;padding:24px}
+  h1,h2,h3{margin:14px 0}
+  .grid{display:grid;gap:16px}
+  .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+  .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+  figure{margin:0;background:white;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(15,23,42,.06)}
+  figure img{display:block;width:100%;height:220px;object-fit:cover;background:#e2e8f0}
+  figcaption{padding:10px 12px;font-size:14px;color:#334155}
+  .card{background:white;border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;box-shadow:0 2px 8px rgba(15,23,42,.06)}
+  .badge{display:inline-block;background:#e2e8f0;color:#0f172a;border-radius:999px;padding:2px 10px;font-size:12px;margin-right:6px}
+  code{background:#0f172a;color:#ecfeff;padding:2px 6px;border-radius:6px}
+  table{width:100%;border-collapse:collapse;background:white;border-radius:12px;overflow:hidden}
+  th,td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left}
+  th{background:#f1f5f9}
+  .step{display:flex;gap:14px;margin:12px 0}
+  .step .num{flex:0 0 36px;height:36px;border-radius:10px;background:#0ea5e9;color:white;display:flex;align-items:center;justify-content:center;font-weight:700}
+  .muted{color:#475569}
+  .warn{background:#fff7ed;border:1px solid #fdba74}
+  .ok{background:#ecfeff;border:1px solid #67e8f9}
+  .callout{border-radius:12px;padding:12px 14px;margin:10px 0}
+  .footer{color:#475569;font-size:12px;padding:24px;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <h1>Secado con Nitrógeno (N₂) y Tamiz Molecular — Lactato de Etilo y Solventes</h1>
+  <p>Procedimiento operativo estándar (SOP) para laboratorio / planta piloto. Incluye purga, <i>sparging</i>, columna con tamiz 3A y inertización.</p>
+</header>
+<main>
+
+<section>
+  <h2>Instrumentación recomendada (con “slots” para fotos reales)</h2>
+  <div class="grid cols-3">
+    <figure>
+      <img src="photos/botella_N2.png" alt="Cilindro de nitrógeno con regulador de dos etapas">
+      <figcaption><b>Cilindro de N₂</b> con regulador de dos etapas (0–10 bar) y caudalímetro 0–20 L/min.</figcaption>
+    </figure>
+    <figure>
+      <img src="photos/difusor_aceroinox.png" alt="Difusor sinterizado de acero inoxidable / piedra porosa PTFE">
+      <figcaption><b>Difusor sinterizado</b> (acero/PTFE, 10–20 μm) para <i>sparging</i> en fondo de recipiente.</figcaption>
+    </figure>
+    <figure>
+      <img src="photos/columna_tamiz3A.png" alt="Columna de vidrio/acero con tamiz molecular 3A activado">
+      <figcaption><b>Columna de tamiz 3A</b> (lecho 25–50 cm, granulometría 1–2 mm) con malla y válvulas.</figcaption>
+    </figure>
+    <figure>
+      <img src="photos/bano_termico.png" alt="Baño termostatado o manta calefactora">
+      <figcaption><b>Baño termostatado</b> 30–60 °C para acelerar desorción de agua.</figcaption>
+    </figure>
+    <figure>
+      <img src="photos/reactor_jacket.png" alt="Reactor de vidrio jacketed con agitación y tapa múltiple">
+      <figcaption><b>Reactor de vidrio con camisa</b> (2–5 L) y agitador PTFE. Puerto para difusor y termómetro.</figcaption>
+    </figure>
+    <figure>
+      <img src="photos/filtros_022.png" alt="Filtros 0.22 μm y cartucho secador línea">
+      <figcaption><b>Filtro 0.22 μm</b> para pulido y <b>secador en línea</b> (silica gel) para el gas.</figcaption>
+    </figure>
+  </div>
+  <p class="muted">Nota: sustituye las rutas <code>photos/*.jpg</code> por <u>tus fotografías reales</u> del equipo. El layout está listo para imprimir o compartir.</p>
+</section>
+
+<section>
+  <h2>Resumen de métodos</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <span class="badge">M1</span> <b>Sparging con N₂</b> (arrastre de humedad disuelta): burbujeo a través de difusor fino a 35–45 °C.
+      <ul>
+        <li>Rápido para solventes ya “secos”.</li>
+        <li>Reduce ppm de agua hasta ~500–1000 mg/kg.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="badge">M2</span> <b>Recirculación por tamiz 3A</b> (adsorción): pasar solvente por columna 3A activada.
+      <ul>
+        <li>Secado profundo (&lt;200 ppm agua).</li>
+        <li>Ideal previo a mezclar con isocianatos / epóxicos.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Dimensionamiento rápido</h2>
+  <table>
+    <tr><th>Parámetro</th><th>Regla práctica</th><th>Ejemplo (10 L de lactato de etilo)</th></tr>
+    <tr><td>Caudal N₂ (sparging)</td><td>1–2 volúmenes de gas / volumen de líquido / h</td><td>10–20 L/min</td></tr>
+    <tr><td>Temperatura del líquido</td><td>35–45 °C (no exceder punto de inflamación indirecto)</td><td>40 °C</td></tr>
+    <tr><td>Tamiz 3A necesario</td><td>0.05–0.10 kg por L de solvente</td><td>0.5–1.0 kg</td></tr>
+    <tr><td>Tiempo de contacto en columna</td><td>3–8 min EBCT (Empty Bed Contact Time)</td><td>Lecho 30 cm, Ø 4–5 cm, 1–2 L/min</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>Procedimiento detallado — M1: Sparging con N₂</h2>
+  <div class="step"><div class="num">1</div><div><b>Preparación del sistema</b><br>
+    Monta el cilindro de N₂ con regulador de dos etapas y caudalímetro. Instala un <b>secador en línea</b> (cartucho de sílica gel) a la salida. Coloca el <b>difusor sinterizado</b> en el fondo del reactor/recipiente y conecta con manguera PTFE.</div></div>
+  <div class="step"><div class="num">2</div><div><b>Carga del solvente</b><br>
+    Añade el lactato de etilo al reactor (llenado máximo 70 % del volumen). Inserta termómetro y tapa para minimizar ingreso de aire.</div></div>
+  <div class="step"><div class="num">3</div><div><b>Inertización</b><br>
+    Realiza una <b>purga de cabeza</b> a 10–15 L/min durante 1–2 min con tapa semiabierta. Cierra tapas y mantén una <b>presión muy ligera</b> (0.05–0.1 bar).</div></div>
+  <div class="step"><div class="num">4</div><div><b>Elevación de temperatura</b><br>
+    Calienta la camisa/baño a <b>40 °C</b>. Activa agitación suave (100–200 rpm) para homogeneidad.</div></div>
+  <div class="step"><div class="num">5</div><div><b>Sparging</b><br>
+    Abre el N₂ al caudal objetivo (10–20 L/min para 10 L de solvente). Verifica burbujeo fino y uniforme. Mantén 45–90 min según humedad inicial.</div></div>
+  <div class="step"><div class="num">6</div><div><b>Monitoreo</b><br>
+    Toma alícuotas cada 30 min y mide humedad por <b>titulación Karl Fischer</b> (o <i>water activity</i> como proxy). Objetivo: &lt;0.2 % (2000 ppm) para epoxi, &lt;0.05 % (500 ppm) para PU.</div></div>
+  <div class="step"><div class="num">7</div><div><b>Blanketing y transferencia</b><br>
+    Detén burbujeo; mantén <b>blanket</b> de N₂ (0.05 bar). Transfiere por línea sellada a tambor con <b>liner de aluminio</b>. Purgar el headspace con N₂ 5–10 s y sellar.</div></div>
+  <div class="callout ok"><b>Consejo:</b> si necesitas bajar por debajo de 500 ppm, continúa con el método M2 (tamiz 3A) tras 30–45 min de sparging. El N₂ reduce rápido el agua “libre”; el 3A remueve la residual.</div>
+</section>
+
+<section>
+  <h2>Procedimiento detallado — M2: Columna de Tamiz 3A</h2>
+  <div class="step"><div class="num">1</div><div><b>Activación del tamiz</b><br>
+    Horno a <b>250–300 °C por 12–16 h</b> en bandeja o columna metálica. Enfriar en desecador y cargar en la columna inmediatamente (evitar exposición al aire).</div></div>
+  <div class="step"><div class="num">2</div><div><b>Empaque de la columna</b><br>
+    Coloca mallas en ambos extremos, llena con 3A (1–2 mm) hasta un lecho de 25–50 cm. Instala válvulas y manómetro. Prueba estanqueidad con N₂.</div></div>
+  <div class="step"><div class="num">3</div><div><b>Bypass y recirculación</b><br>
+    Conecta bomba de diafragma/engranes compatible. Circula solvente <b>en lazo cerrado</b> a 1–2 L/min para 10 L totales, asegurando <b>EBCT 3–8 min</b>. Mantén 30–40 °C para acelerar adsorción.</div></div>
+  <div class="step"><div class="num">4</div><div><b>Monitoreo</b><br>
+    Mide humedad en línea (si tienes sensor) o por Karl Fischer cada 15–30 min. Cambia a columna “fresca” cuando el efluente supere 70 % del valor de entrada (punto de ruptura).</div></div>
+  <div class="step"><div class="num">5</div><div><b>Finalización y almacenamiento</b><br>
+    Una vez alcanzado el objetivo (&lt;200–500 ppm), transfiere a tambor purgado con N₂ y sella. Etiqueta con fecha y humedad final.</div></div>
+  <div class="callout warn"><b>Seguridad:</b> El 3A caliente puede quemar; manipula con guantes y deja enfriar en desecador. No expongas el lecho seco al aire húmedo.</div>
+</section>
+
+<section>
+  <h2>Diagrama de conexiones (texto)</h2>
+  <div class="card">
+<pre>
+Cilindro N₂ → Regulador (2 etapas) → Válvula aguja → Caudalímetro
+       ↘ Secador en línea (sílica gel) → Válvula → Entrada reactor
+                                     → Difusor sinterizado (fondo)
+Salida superior reactor → Trampa de condensados → Filtro 0.22 μm → Tambor final (blanket N₂)
+</pre>
+  </div>
+</section>
+
+<section>
+  <h2>Checklist de operación</h2>
+  <ul>
+    <li>Verificar fugas con agua jabonosa en conexiones de gas.</li>
+    <li>Confirmar tierra física del equipo y ventilación correcta.</li>
+    <li>Registrar: lote de solvente, temperatura, caudal N₂, tiempos, humedad inicial/final.</li>
+    <li>Etiquetar tambor con <b>“Secado con N₂ + 3A”</b>, ppm H₂O, fecha, operario.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Tablas de referencia</h2>
+  <table>
+    <tr><th>Solvente</th><th>ρ (25 °C)</th><th>P.eb. (°C)</th><th>Objetivo de humedad</th><th>Uso típico</th></tr>
+    <tr><td>Lactato de etilo</td><td>1.03 g/mL</td><td>155</td><td>&lt; 500 ppm (PU/epoxi)</td><td>Bio-reductor/nivelación</td></tr>
+    <tr><td>Acetato de butilo</td><td>0.88</td><td>126</td><td>&lt; 1000 ppm</td><td>Solvente principal</td></tr>
+    <tr><td>PM Acetate</td><td>0.97</td><td>145</td><td>&lt; 500 ppm</td><td>Control de evaporación</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>QA/QC — Métodos de medición de humedad</h2>
+  <ol>
+    <li><b>Karl Fischer volumétrico</b>: precisión &plusmn;10–20 ppm (ideal).</li>
+    <li><b>Pérdida por secado</b> a 105 °C: aproximación; incluye volátiles.</li>
+    <li><b>Sensores capacitivos en línea</b>: útiles para tendencia.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Regeneración del tamiz 3A</h2>
+  <ul>
+    <li>Horno 250–300 °C por 12–16 h; flujo de N₂ o vacío suave.</li>
+    <li>Enfriar en desecador hermético; almacenar en frasco ámbar con bolsa desecante.</li>
+    <li>Vida útil: 10–20 ciclos según carga de agua.</li>
+  </ul>
+</section>
+
+<div class="footer">
+  Plantilla preparada para insertar <b>fotografías reales</b> de tu laboratorio. Reemplaza los archivos en la carpeta <code>photos/</code>.
+</div>
+
+</main>
+</body>
+</html>
