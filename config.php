@@ -1,15 +1,15 @@
 <?php
-// MPO - Configuración base
+// MPO - ConfiguraciÃ³n base
 session_start();
 
 define('APP_NAME', 'Manufacturing & Process Operations');
 define('BASE_URL', 'https://www.a4paints.com/mpo/');
 
-// Conexión a base de datos (ajusta credenciales según tu servidor)
+// ConexiÃ³n a base de datos (ajusta credenciales segÃºn tu servidor)
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'apaintsc_a4_mpo');
 define('DB_USER', 'apaintsc_a4paints');
-define('DB_PASS', 'Petrolera85**');
+define('DB_PASS', 'XXXXX');
 
 try {
     $pdo = new PDO(
@@ -20,7 +20,7 @@ try {
     );
     $pdo->exec("SET NAMES utf8mb4");
 } catch (PDOException $e) {
-    die("Error en conexión: " . $e->getMessage());
+    die("Error en conexiÃ³n: " . $e->getMessage());
 }
 
 $pendientesCompra = (int)$pdo
@@ -38,10 +38,10 @@ function getPresentacionIdGramos(PDO $pdo) {
   // 1) por slug
   $id = $pdo->query("SELECT id FROM presentaciones WHERE slug='gramos'")->fetchColumn();
   if ($id) return (int)$id;
-  // 2) por par��metro
+  // 2) por par¨¢metro
   $id = getParam($pdo, 'presentacion_gramos_id', null);
   if ($id) return (int)$id;
-  // 3) ��ltimo recurso por nombre
+  // 3) ¨²ltimo recurso por nombre
   $stmt = $pdo->prepare("SELECT id FROM presentaciones WHERE LOWER(nombre)='gramos' LIMIT 1");
   $stmt->execute();
   return (int)$stmt->fetchColumn();
@@ -63,12 +63,12 @@ function insertProduccionConsumo(PDO $pdo, int $produccion_id, int $mp_id, float
   $stmt->execute([$produccion_id, $mp_id, $gramos, $lote]);
 }
 
-/** Convierte presentaciones a gramos. Requiere densidad kg/L para l��quidos.
+/** Convierte presentaciones a gramos. Requiere densidad kg/L para l¨ªquidos.
  *  $litros, $galones, $cubetas pueden venir 0/null. */
 function calcularGramosProduccion(PDO $pdo, float $litros=0, float $galones=0, float $cubetas=0, ?float $densidad_kg_por_l=null): float {
   $lpC = (float)getParam($pdo, 'litros_por_cubeta', 19);      // litros por cubeta
   $litros_tot = (float)$litros + ((float)$galones * 3.785411784) + ((float)$cubetas * $lpC);
-  // Si no aplica densidad (s��lidos), puedes pasar $densidad_kg_por_l=1 y ajustar seg��n producto
+  // Si no aplica densidad (s¨®lidos), puedes pasar $densidad_kg_por_l=1 y ajustar seg¨²n producto
   $kg = $litros_tot * (float)($densidad_kg_por_l ?: 1);
   return round($kg * 1000, 3); // a gramos
 }
@@ -77,7 +77,7 @@ function calcularGramosProduccion(PDO $pdo, float $litros=0, float $galones=0, f
 // Helpers de empaque / kits
 if (!function_exists('packaging_autofill_items_from_kit')) {
   /**
-   * Carga los insumos de empaque definidos en packaging_kits para (producto,presentaci��n)
+   * Carga los insumos de empaque definidos en packaging_kits para (producto,presentaci¨®n)
    * y los inserta en packaging_request_items del request indicado.
    */
   function packaging_autofill_items_from_kit(PDO $pdo, int $requestId, int $productoId, int $presentacionId): void {
